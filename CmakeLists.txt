@@ -14,6 +14,7 @@ add_executable(tetris src/main.c
         inc/game.h
         src/game.c
         src/render.c
+        inc/defs.h
 )
 
 target_include_directories(tetris PRIVATE inc)

@@ -3,26 +3,46 @@
 //
 
 #include "render.h"
+#include "defs.h"
+#include <string.h>
+#include "raylib.h"
 
 void init_window()
 {
 
-    InitWindow(800, 600, "Tetris");
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Tetris");
     SetTargetFPS(60);
 
 }
 
 void draw_example()
 {
+    BeginDrawing();
+    ClearBackground(BLACK);
 
-    while (!WindowShouldClose())
+    int dx = 0;
+
+    for (int dy = 0; dy < current_piece.height_in_cells; dy++)
     {
-        BeginDrawing();
-        ClearBackground(BLACK);
-        DrawText("Hej misio :3", 350, 280, 20, WHITE);
-        EndDrawing();
+        for (dx = 0; dx < current_piece.width_in_cells; dx++)
+        {
+            if (current_piece.shape[dy][dx] == 1)
+            {
+                DrawRectangle
+                (
+                    (current_piece.x + dx) * CELL_SIZE,
+                    (current_piece.y + dy) * CELL_SIZE,
+                    CELL_SIZE,
+                    CELL_SIZE,
+                    current_piece.color
+                );
+            }
+        }
+
     }
 
-    CloseWindow();
+
+
+    EndDrawing();
 
 }
