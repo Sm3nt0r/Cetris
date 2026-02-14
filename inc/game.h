@@ -7,4 +7,10 @@
 
 #include "raylib.h"
 
+void update_game();
+
+void build_L(int shape[4][4]);
+
+
+
 #endif //TETRIS_GAME_H

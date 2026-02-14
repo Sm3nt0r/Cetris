@@ -5,7 +5,7 @@
 #ifndef TETRIS_RENDER_H
 #define TETRIS_RENDER_H
 
-#include "raylib.h"
+#include <stdbool.h>
 
 void init_window();
 
