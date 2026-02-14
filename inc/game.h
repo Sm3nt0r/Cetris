@@ -9,7 +9,7 @@
 
 void update_game();
 
-void build_L(int shape[4][4]);
+void build(int shape[4][4]);
 
 
 

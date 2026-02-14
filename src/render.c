@@ -20,14 +20,26 @@ void draw_example()
     BeginDrawing();
     ClearBackground(BLACK);
 
-    DrawRectangle
-    (
-        current_piece.x,
-        current_piece.y,
-        current_piece.width_in_cells * CELL_SIZE,
-        current_piece.height_in_cells * CELL_SIZE,
-        WHITE
-    );
+    int dx = 0;
+
+    for (int dy = 0; dy < current_piece.height_in_cells; dy++)
+    {
+        for (dx = 0; dx < current_piece.width_in_cells; dx++)
+        {
+            if (current_piece.shape[dy][dx] == 1)
+            {
+                DrawRectangle
+                (
+                    (current_piece.x + dx) * CELL_SIZE,
+                    (current_piece.y + dy) * CELL_SIZE,
+                    CELL_SIZE,
+                    CELL_SIZE,
+                    current_piece.color
+                );
+            }
+        }
+
+    }
 
 
 

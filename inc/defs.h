@@ -5,6 +5,8 @@
 #ifndef TETRIS_DEFS_H
 #define TETRIS_DEFS_H
 
+#include "raylib.h"
+
 #define BOARD_WIDTH 10
 #define BOARD_HEIGHT 20
 #define CELL_SIZE 30
@@ -19,6 +21,8 @@ typedef struct{
     int width_in_cells;
     int height_in_cells;
     bool is_falling;
+    Color color;
+
 } Piece;
 
 extern int J_shape[4][4];
@@ -29,5 +33,8 @@ extern int S_shape[4][4];
 extern int O_shape[4][4];
 
 extern Piece current_piece;
+
+extern float fall_timer;
+extern float fall_delay;
 
 #endif //TETRIS_DEFS_H
