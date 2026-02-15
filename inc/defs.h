@@ -22,6 +22,7 @@ typedef struct{
     int height_in_cells;
     bool is_falling;
     Color color;
+    bool is_active;
 
 } Piece;
 
@@ -36,5 +37,7 @@ extern Piece current_piece;
 
 extern float fall_timer;
 extern float fall_delay;
+
+extern int board[20][10];
 
 #endif //TETRIS_DEFS_H

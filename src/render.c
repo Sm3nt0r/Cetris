@@ -7,6 +7,9 @@
 #include <string.h>
 #include "raylib.h"
 
+int dx = 0;
+int dy = 0;
+
 void init_window()
 {
 
@@ -15,13 +18,30 @@ void init_window()
 
 }
 
-void draw_example()
+void draw_board()
 {
-    BeginDrawing();
-    ClearBackground(BLACK);
+    for (int dy = 0; dy < BOARD_HEIGHT; dy++)
+    {
+        for (dx = 0; dx < BOARD_WIDTH; dx++)
+        {
+            if (board[dy][dx] == 1)
+            {
+                DrawRectangle
+                (
+                    dx * CELL_SIZE,
+                    dy * CELL_SIZE,
+                    CELL_SIZE,
+                    CELL_SIZE,
+                    current_piece.color
+                );
+            }
+        }
 
-    int dx = 0;
+    }
+}
 
+void draw_falling_piece()
+{
     for (int dy = 0; dy < current_piece.height_in_cells; dy++)
     {
         for (dx = 0; dx < current_piece.width_in_cells; dx++)
@@ -40,6 +60,15 @@ void draw_example()
         }
 
     }
+}
+
+void draw_example()
+{
+    BeginDrawing();
+    ClearBackground(BLACK);
+
+    draw_board();
+    draw_falling_piece();
 
 
 
