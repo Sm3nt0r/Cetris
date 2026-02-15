@@ -69,6 +69,20 @@ void add_piece_to_stack(Piece piece)
 
 }
 
+int is_colliding_with_stack()
+{
+    for (int dy = 0; dy < 4; dy++)
+    {
+        for (int dx = 0; dx < 4; dx++)
+        {
+            if (current_piece.shape[dy][dx] == 1 && board[current_piece.y + dy + 1][current_piece.x + dx])
+            {
+                return true;
+            }
+        }
+    }
+}
+
 void update_game()
 {
     if (!current_piece.is_active) {
@@ -92,6 +106,13 @@ void update_game()
 
     if (current_piece.is_falling)
     {
+        if (is_colliding_with_stack())
+        {
+            add_piece_to_stack(current_piece);
+            current_piece.is_active = false;
+            return;
+        }
+
         fall_timer += GetFrameTime();
         move_timer += GetFrameTime();
 
