@@ -42,9 +42,9 @@ void draw_board()
 
 void draw_falling_piece()
 {
-    for (int dy = 0; dy < current_piece.height_in_cells; dy++)
+    for (int dy = 0; dy < 4; dy++)
     {
-        for (dx = 0; dx < current_piece.width_in_cells; dx++)
+        for (dx = 0; dx < 4; dx++)
         {
             if (current_piece.shape[dy][dx] == 1)
             {

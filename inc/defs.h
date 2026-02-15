@@ -18,8 +18,6 @@ typedef struct{
     int x;
     int y;
     int shape[4][4];
-    int width_in_cells;
-    int height_in_cells;
     bool is_falling;
     Color color;
     bool is_active;
